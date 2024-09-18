@@ -17,7 +17,7 @@ public class Role {
     private int id;
 
     // how to get validation for all positions like: EMPLOYEE, MANAGER, PROJECT_MANAGER, SUPERVISOR, HR, ADMIN, BOSS.
-    // I know we can do it later in frontend and controller, but I think it should be a easy way of doing it here with annotations.
+    // I know we can do it later in frontend and controller, but I think it should be an easy way of doing it here with annotations.
     @NotNull(message = "Put Role name from list: EMPLOYEE, MANAGER, PROJECT_MANAGER, SUPERVISOR, HR, ADMIN, BOSS")
     @Column(name = "name")
     private String name;
@@ -29,7 +29,7 @@ public class Role {
             joinColumns = @JoinColumn(name = "role_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<User> usersList;
+    private List<User> listOfTheUsers;
 
     public Role(String name) {
         this.name = name;
@@ -47,6 +47,14 @@ public class Role {
         this.name = name;
     }
 
+    public List<User> getlistOfTheUsers() {
+        return listOfTheUsers;
+    }
+
+    public void setlistOfTheUsers(List<User> listOfTheUsers) {
+        this.listOfTheUsers = listOfTheUsers;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
@@ -58,11 +66,11 @@ public class Role {
     // convenience method
     public void add(User tempUser){
 
-        if(usersList == null) {
-            usersList = new ArrayList<>();
+        if(listOfTheUsers == null) {
+            listOfTheUsers = new ArrayList<>();
         }
 
-        usersList.add(tempUser);
+        listOfTheUsers.add(tempUser);
 
         tempUser.setUserRole(this);
     }
