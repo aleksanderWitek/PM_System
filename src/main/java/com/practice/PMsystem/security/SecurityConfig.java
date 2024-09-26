@@ -24,6 +24,15 @@ public class SecurityConfig {
                 configurer
                         .anyRequest().authenticated()
                         .requestMatchers("/").hasAnyRole() // HAVE TO FINISH THIS!!!
+                        .requestMatchers("/listOfUsers").hasAnyRole()
+                        .requestMatchers("/listOfUsersByOrderByUsernameAsc").hasAnyRole()
+                        .requestMatchers("/listOfUsersByOrderByEnabledAsc").hasAnyRole()
+                        .requestMatchers("/access-denied").hasAnyRole()
+                        .requestMatchers("/newUserForm").hasRole("")
+                        .requestMatchers("/saveNewUser").hasRole("")
+                        .requestMatchers("/showFromForUserUpdate").hasRole("")
+                        .requestMatchers("/delete").hasRole("")
+
                 )
                 .exceptionHandling(configurer ->
                         configurer

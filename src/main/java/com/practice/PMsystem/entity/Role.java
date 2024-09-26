@@ -18,7 +18,7 @@ public class Role {
 
     // how to get validation for all positions like: EMPLOYEE, MANAGER, PROJECT_MANAGER, SUPERVISOR, HR, ADMIN, BOSS.
     // I know we can do it later in frontend and controller, but I think it should be an easy way of doing it here with annotations.
-    @NotNull(message = "Put Role name from list: EMPLOYEE, MANAGER, PROJECT_MANAGER, SUPERVISOR, HR, ADMIN, BOSS")
+    @NotNull(message = "Put Role name from list: EMPLOYEE, DEPARTMENT_MANAGER, PROJECT_MANAGER, SUPERVISOR, HR, ADMIN, BOSS")
     @Column(name = "name")
     private String name;
 

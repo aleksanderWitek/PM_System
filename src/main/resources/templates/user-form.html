@@ -11,33 +11,33 @@
 <body>
 
 <div class="container">
-    <h3>Employee Directory</h3>
+    <h3>The Company Management System</h3>
     <hr>
 
-    <p class="h4 mb-4">Save Employee</p>
+    <p class="h4 mb-4">Save User</p>
 
-    <form action="#" th:action="@{/employees/save}"
-          th:object="${employee}" method="POST">
+    <form action="#" th:action="@{/saveNewUser}"
+          th:object="${newUser}" method="POST">
 
         <!-- Add hidden form field to handle update -->
-        <input type="hidden" th:field="${employee.id}" />
+        <input type="hidden" th:field="${newUser.id}" />
 
-        <input type="text" th:field="${employee.firstName}"
+        <input type="text" th:field="${newUser.username}"
                class="form-control mb-4 w-25"
-               placeholder="First Name" />
-        <input type="text" th:field="${employee.lastName}"
+               placeholder="Username" />
+        <input type="text" th:field="${newUser.password}"
                class="form-control mb-4 w-25"
-               placeholder="Last Name" />
-        <input type="text" th:field="${employee.email}"
+               placeholder="Password" />
+        <input type="text" th:field="${newUser.enabled}"
                class="form-control mb-4 w-25"
-               placeholder="Email" />
+               placeholder="Enabled 1 or 0" />
 
         <button type="submit" class="btn btn-info col-2">Save</button>
 
     </form>
 
     <hr>
-    <a th:href="@{/employees/list}">Back to Employee List</a>
+    <a th:href="@{/listOfUsers}" class="btn btn-secondary">Back to Users List</a>
 
 </div>
 </body>

@@ -27,7 +27,7 @@ public class HomePageController {
     @GetMapping("/")
     public String showHomePage() {
 
-        return "home";
+        return "redirect:/listOfUsers";
     }
 
     @GetMapping("/listOfUsers")
