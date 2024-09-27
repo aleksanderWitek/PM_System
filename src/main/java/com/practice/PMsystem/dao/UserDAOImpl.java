@@ -12,14 +12,14 @@ import java.util.List;
 @Repository
 public class UserDAOImpl implements UserDAO{
 
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public UserDAOImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
     @Override
-    @Transactional // when we are updating database (save, remove or update) we need this annotation
+    @Transactional // when we are updating database (save, remove or update) we need this annotationUserService
     public void saveUser(User user) {
         entityManager.persist(user);
     }
@@ -36,7 +36,7 @@ public class UserDAOImpl implements UserDAO{
     @Override
     @Transactional // when we are updating database (save, remove or update) we need this annotation
     public void updateUser(User user) {
-        entityManager.persist(user);
+        entityManager.merge(user);
     }
 
     @Override

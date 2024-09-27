@@ -31,6 +31,9 @@ public class Role {
     )
     private List<User> listOfTheUsers;
 
+    public Role() {
+    }
+
     public Role(String name) {
         this.name = name;
     }
@@ -47,11 +50,11 @@ public class Role {
         this.name = name;
     }
 
-    public List<User> getlistOfTheUsers() {
+    public List<User> getListOfTheUsers() {
         return listOfTheUsers;
     }
 
-    public void setlistOfTheUsers(List<User> listOfTheUsers) {
+    public void setListOfTheUsers(List<User> listOfTheUsers) {
         this.listOfTheUsers = listOfTheUsers;
     }
 

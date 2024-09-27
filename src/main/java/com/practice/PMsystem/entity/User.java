@@ -42,6 +42,10 @@ public class User {
     )
     private Role userRole;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_details_id")
+    private UserDetails userDetails;
+
     public User() {
     }
 
@@ -86,6 +90,14 @@ public class User {
 
     public void setUserRole(Role userRole) {
         this.userRole = userRole;
+    }
+
+    public UserDetails getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetails userDetails) {
+        this.userDetails = userDetails;
     }
 
     @Override

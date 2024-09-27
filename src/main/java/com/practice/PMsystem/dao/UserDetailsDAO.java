@@ -1,24 +1,24 @@
 package com.practice.PMsystem.dao;
 
 import com.practice.PMsystem.entity.User;
+import com.practice.PMsystem.entity.UserDetails;
 
 import java.util.List;
 
-public interface UserDAO {
+public interface UserDetailsDAO {
 
-    void saveUser(User user);
+    void saveUserDetails(UserDetails userDetails);
 
-    void deleteUserById(int id);
+    void deleteUserDetailsById(int id);
 
-    void updateUser(User user);
+    void updateUserDetails(UserDetails userDetails);
 
-    User findUserById(int id);
+    UserDetails findUserDetailsById(int id);
 
     // ************************************************
     // is it better to get list of entity's from db and
     // then put them in what order we want or take it already in order from db???
     // ************************************************
 
-    List<User> findAll();
-
+    List<UserDetails> findAll();
 }
