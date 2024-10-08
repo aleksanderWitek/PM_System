@@ -1,6 +1,8 @@
 package com.practice.PMsystem.controller;
 
+import com.practice.PMsystem.entity.Role;
 import com.practice.PMsystem.entity.User;
+import com.practice.PMsystem.entity.UserDetails;
 import com.practice.PMsystem.services.UserService;
 import com.practice.PMsystem.services.UserServiceImpl;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -65,13 +67,18 @@ public class HomePageController {
 
         // create model attribute to bind form data
         User newUser = new User();
+        UserDetails newUserDetails = new UserDetails();
+        Role userRole = new Role();
         model.addAttribute("newUser", newUser);
+        model.addAttribute("newUserDetails", newUserDetails);
+        model.addAttribute("newUserRole", userRole);
 
         return "user-form";
     }
 
     @PostMapping("/saveNewUser")
     public String saveNewUser(@ModelAttribute("newUser") User newUser) {
+
         userService.saveUser(newUser);
 
         // use a redirect to prevent duplicate submissions

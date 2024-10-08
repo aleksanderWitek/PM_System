@@ -25,18 +25,24 @@
 
         <thead class="table-dark">
         <tr>
-            <th>Username</th>
+            <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Phone Number</th>
+            <th>Country</th>
+            <th>City</th>
             <th>Action</th>
         </tr>
         </thead>
 
         <tbody>
-        <tr th:each="tempEmployee : ${employees}">
-            <td th:text="${tempEmployee.firstName}" />
-            <td th:text="${tempEmployee.lastName}" />
-            <td th:text="${tempEmployee.email}" />
+        <tr th:each="tempUser : ${listOfUsers}">
+            <td th:text="${tempUser.firstName}" />
+            <td th:text="${tempUser.lastName}" />
+            <td th:text="${tempUser.email}" />
+            <td th:text="${tempUser.phoneNumber}" />
+            <td th:text="${tempUser.branchCountry}" />
+            <td th:text="${tempUser.branchCity}" />
             <td>
                 <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
                    class="btn btn-info btn-sm">Update</a>
