@@ -30,6 +30,7 @@ public class User {
 
     @NotNull(message = "Can't be empty.")
     @Pattern(regexp = "/^[01]$/", message = "You need to put number 1 or 0 only. 1 for active user and 0 for not active user.")
+    @Size(min = 1, max = 1, message = "You need to put number 1 or 0 only. 1 for active user and 0 for not active user.")
     @Column(name = "enabled")
     private int enabled;
 

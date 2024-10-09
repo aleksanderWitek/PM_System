@@ -1,26 +1,45 @@
 package com.practice.PMsystem.entity;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "user_details")
 public class UserDetails {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull(message = "Some Big Problem if ID is null")
+    @Column(name = "id")
     private int id;
 
+    @NotNull(message = "Enter user First Name")
+    @Size(min = 4, max = 20, message = "First name has to be between 4-20 chars")
+    @Column(name = "first_name")
     private String firstName;
 
+    @NotNull(message = "Enter user Last Name")
+    @Size(min = 4, max = 20, message = "Last name has to be between 4-20 chars")
+    @Column(name = "last_name")
     private String lastName;
 
+    @NotNull(message = "Enter user email")
+    @Size(max = 30, message = "email has to have max 30 chars")
+    @Column(name = "email")
     private String email;
 
+    @Pattern(regexp = "/^[0123456789]$/", message = "You can only use numbers")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Size(max = 30, message = "Country has to have max 30 chars")
+    @Column(name = "branch_country")
     private String branchCountry;
 
+    @Size(max = 30, message = "City has to have max 30 chars")
+    @Column(name = "branch_city")
     private String branchCity;
 
     @OneToOne(cascade = CascadeType.ALL,
